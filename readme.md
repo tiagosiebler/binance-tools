@@ -13,7 +13,7 @@ $ cd binance-tools
 ```
 $ npm install
 
-# Optiona: recommend instlaling ts-node to execute typescript files directly:
+# Optional: recommend instlaling ts-node to execute typescript files directly:
 $ npm install -g ts-node
 ```
 

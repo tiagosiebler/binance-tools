@@ -1,0 +1,15 @@
+[
+  {
+    "desc": "jeff1",
+    "api_key": "apikey1",
+    "api_secret": "apisecret1",
+    "features": ["closeall"]
+  },
+  {
+    "desc": "liz1",
+    "api_key": "apikey2",
+    "api_secret": "apisecret2",
+    "features": ["closeall"],
+    "ignore": true
+  }
+]

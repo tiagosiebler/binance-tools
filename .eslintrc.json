@@ -1,0 +1,108 @@
+{
+  "root": true,
+  "env": {
+    "es6": true,
+    "node": true,
+    "jest": true
+  },
+  "plugins": ["@typescript-eslint"],
+  "extends": [
+    "eslint:recommended",
+    "plugin:@typescript-eslint/recommended",
+    "prettier",
+    "prettier/@typescript-eslint"
+  ],
+  "parser": "@typescript-eslint/parser",
+  "parserOptions": {
+    "sourceType": "module",
+    "ecmaVersion": 9,
+    "projectFolderIgnoreList": [
+      "/node_modules/",
+      "/dist/",
+      "/tools/",
+      "/docs/",
+      "/scripts/",
+      "/test-results/",
+      "/out"
+    ]
+  },
+  "rules": {
+    // "@typescript-eslint/no-unused-vars": ["error", { "args": "none", "ignoreRestSiblings": true }],
+    "@typescript-eslint/no-unused-vars": "off",
+    // Enabled: typescript
+    "@typescript-eslint/await-thenable": "off",
+    "@typescript-eslint/dot-notation": "error",
+    "@typescript-eslint/explicit-member-accessibility": [
+      "off",
+      {
+        "accessibility": "explicit",
+        "overrides": {
+          "constructors": "explicit"
+        }
+      }
+    ],
+    "@typescript-eslint/no-empty-function": "off",
+    "@typescript-eslint/no-require-imports": "off",
+    "@typescript-eslint/no-unused-expressions": "off",
+    "@typescript-eslint/no-var-requires": "off",
+    "@typescript-eslint/prefer-namespace-keyword": "error",
+
+    "@typescript-eslint/no-explicit-any": "off",
+    "@typescript-eslint/no-floating-promises": "off",
+    "@typescript-eslint/no-inferrable-types": "off",
+    "@typescript-eslint/promise-function-async": "off",
+    "@typescript-eslint/no-use-before-define": "off",
+    "@typescript-eslint/no-non-null-assertion": "off",
+    "@typescript-eslint/ban-types": "off",
+    "@typescript-eslint/explicit-module-boundary-types": "off",
+
+    "quotes": ["error", "single", { "allowTemplateLiterals": true }],
+
+    // Enabled: eslint
+    "default-case": "error",
+    "no-return-await": "error",
+    "eqeqeq": ["off", "smart"],
+    "id-denylist": ["off", "any", "Undefined", "undefined"],
+    "id-match": "error",
+    "no-caller": "error",
+    "no-cond-assign": "error",
+    "no-console": [
+      "off",
+      {
+        "allow": [
+          "timeLog",
+          "clear",
+          "countReset",
+          "Console",
+          "markTimeline",
+          "timeline",
+          "timelineEnd",
+          "context"
+        ]
+      }
+    ],
+    "no-debugger": "off",
+    "no-eval": "error",
+    "no-new-wrappers": "error",
+    "no-redeclare": "error",
+    "no-async-promise-executor": "off",
+    "prefer-const": "error",
+    "prefer-object-spread": "error",
+    "radix": "off",
+
+    // Disabled: eslint
+    "guard-for-in": "off",
+    "no-empty": "off",
+    "no-invalid-this": "off",
+    "no-magic-numbers": "off",
+    "no-null/no-null": "off",
+    "no-shadow": "off",
+    "no-trailing-spaces": "off",
+    "no-underscore-dangle": "off",
+    "no-var": "off",
+    "no-unused-vars": "off",
+    "no-case-declarations": "off",
+    "no-constant-condition": "off",
+    "no-dupe-class-members": "off"
+  }
+}

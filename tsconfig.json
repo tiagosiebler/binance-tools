@@ -1,0 +1,36 @@
+{
+  "compileOnSave": true,
+  "compilerOptions": {
+      "target": "ES2019",
+      "module": "commonjs",
+      "declaration": false,
+      "declarationMap": false,
+      "outDir": "dist",
+      "allowJs": true,
+      "checkJs": true,
+      "removeComments": false,
+      "noEmitOnError": false,
+      "noImplicitAny": false,
+      "preserveConstEnums": true,
+      "strictNullChecks": true,
+      "skipLibCheck": true,
+      "sourceMap": true,
+      "esModuleInterop": true,
+      "allowSyntheticDefaultImports": true,
+      "watch": false,
+      "lib": ["es2020","DOM"],
+      "baseUrl": "src"
+  },
+  "exclude": [
+    "node_modules",
+    "**/node_modules/*",
+    "coverage",
+    "bin",
+    "docker",
+    "docs",
+    "test"
+  ],
+  "include": [
+    "src/**/*"
+  ],
+}

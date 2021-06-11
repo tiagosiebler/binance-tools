@@ -34,5 +34,4 @@ async function checkPositionsForAccount(api_key: string, api_secret: string, des
   const promises = accounts.map(account => checkPositionsForAccount(account.api_key, account.api_secret, account.desc));
 
   await Promise.allSettled(promises);
-  console.log(new Date(), 'All positions closed');
 })();

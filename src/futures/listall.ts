@@ -6,7 +6,7 @@ import Binance from "node-binance-api";
 import { getAccounts } from "../lib/config";
 import { BinanceFuturesAccountResponse } from "../lib/binancetypes";
 
-async function closePositionsForAccount(api_key: string, api_secret: string, desc: string) {
+async function checkPositionsForAccount(api_key: string, api_secret: string, desc: string) {
   const logger = (...params) => {
     console.log(new Date(), '|', desc, '|', ...params);
   }
@@ -20,7 +20,7 @@ async function closePositionsForAccount(api_key: string, api_secret: string, des
   const accountState: BinanceFuturesAccountResponse = await binance.futuresAccount();
   const positions = accountState.positions.filter(position => parseFloat(position.positionAmt ) != 0);
 
-  if (positions?.length === 0) {
+  if (!positions || positions.length === 0) {
     logger('No positions found.');
     return;
   }
@@ -31,7 +31,7 @@ async function closePositionsForAccount(api_key: string, api_secret: string, des
 
 (async () => {
   const accounts = getAccounts();
-  const promises = accounts.map(account => closePositionsForAccount(account.api_key, account.api_secret, account.desc));
+  const promises = accounts.map(account => checkPositionsForAccount(account.api_key, account.api_secret, account.desc));
 
   await Promise.allSettled(promises);
   console.log(new Date(), 'All positions closed');

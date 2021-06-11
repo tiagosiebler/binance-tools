@@ -29,7 +29,7 @@ async function closePositionsForAccount(api_key: string, api_secret: string, des
   const accountState: BinanceFuturesAccountResponse = await binance.futuresAccount();
   const positions = accountState.positions.filter(position => parseFloat(position.positionAmt ) != 0);
 
-  if (positions?.length === 0) {
+  if (!positions || positions.length === 0) {
     logger('No positions found. Skipping.');
     return;
   }
@@ -68,8 +68,11 @@ async function closePositionsForAccount(api_key: string, api_secret: string, des
       return;
     }
 
+    // might be negative
+    const normalisedAmount = Math.abs(parseFloat(position.positionAmt));
+
     // trigger reduce order to close position
-    return binance.futuresOrder(closingSide, symbol, position.positionAmt, false, {
+    return binance.futuresOrder(closingSide, symbol, normalisedAmount, false, {
       reduceOnly: 'true',
       newClientOrderId: generateNewFuturesOrderId(),
     });
